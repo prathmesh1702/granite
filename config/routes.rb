@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get '/books/:id' => 'books#show'
+  resources :friends
+  # root 'friends'
+
+  get '/books/:id' => 'books#show', as: "book"
+  # root "books#show"
   # get 'articles/list'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,6 +14,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   
-  get '/articles'=> 'articles#list'
+  resources :articles
+
+  # root "articles#index"
 
 end
